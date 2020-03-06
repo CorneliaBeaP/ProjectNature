@@ -1,0 +1,12 @@
+#container {
+    width: 960px;
+    margin: auto;
+}
+
+#products {
+    display: inline-block;
+}
+
+#cart {
+    display: inline-block;
+}
