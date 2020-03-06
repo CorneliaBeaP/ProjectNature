@@ -54,18 +54,22 @@ h1{
 }
 
 #cart{
-    background-image: url(../images/leaf.jpg);
-    background-position: center;
+    background-image: url(../images/sea.jpg);
     height: 60px;
     width: 450px;
-    margin: auto;
+
     position: fixed;
-    margin-left: 150px;
+
     border-radius: 5px;
     bottom: 0px;
-color: black;
-filter: blur(5px);
+    color: black;
+    cursor: pointer;
 
+}
+
+#cart:hover {
+    transition: ease 0.3s;
+    filter: brightness(110%);
 }
 
 
@@ -152,6 +156,7 @@ cursor: pointer;
     position: relative;
     top:22px;
     font-size: 17px;
+
 }
 #carttext{
 padding-left: 20px;
@@ -161,4 +166,21 @@ margin-left: 120px;
 }
 #sum{
 margin-left: 10px;
+}
+
+
+#cartexpanded{
+    transition: 0.2s ease-out;
+    border-style: dashed;
+    background-color: aquamarine;
+    position: fixed;
+    bottom: 60px;
+    width: 450px;
+    overflow: scroll;
+    max-height: 800px;
+}
+
+
+#cartexpanded::-webkit-scrollbar {
+    display: none;
 }
