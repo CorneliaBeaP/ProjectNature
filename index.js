@@ -30,8 +30,8 @@ $(document).ready(function(){
             <div class="description">${element.description}
             </div>
             <div class="price">Pris ${element.price} kr</div>
-            <div class="amount">Antal</div>
             <button class="minusbtn">-</button>
+            <div class="amount">Antal</div>
             <button class="plusbtn">+</button>
         </div>`
        });

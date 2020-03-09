@@ -54,7 +54,7 @@ h1{
 }
 
 #cart{
-    background-image: url(../images/sea.jpg);
+    background-image: url(../ProjectNature/images/sea.jpg);
     height: 60px;
     width: 450px;
 
@@ -116,9 +116,10 @@ top: 13px;
 
 .amount{
     display: inline;
-    margin-left: 350px;
+    margin-left: 0px;
 position: relative;
-bottom: 7px;
+bottom: 5px;
+left: 335px;
 }
 
 .minusbtn{
@@ -129,10 +130,10 @@ border-radius: 5px;
 background-color: #fff;
 border: 1px;
 color: darkgrey;
-font-size: px;
 border-color: darkgrey;
 border-style: solid;
 cursor: pointer;
+left: 330px;
 }
 
 .plusbtn{
@@ -143,12 +144,10 @@ cursor: pointer;
 background-color: #fff;
 border: 1px;
 color: darkgrey;
-font-size: px;
 border-color: darkgrey;
 border-style: solid;
 cursor: pointer;
-
-
+left: 340px;
 }
 
 #cart div{
@@ -171,7 +170,6 @@ margin-left: 10px;
 
 #cartexpanded{
     transition: 0.2s ease-out;
-    border-style: dashed;
     background-color: aquamarine;
     position: fixed;
     bottom: 60px;
@@ -183,4 +181,21 @@ margin-left: 10px;
 
 #cartexpanded::-webkit-scrollbar {
     display: none;
+}
+
+#cartexpanded button{
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    border-color: darkgrey;
+    border-style: solid;
+    cursor: pointer;
+    font-family: 'Spartan', sans-serif;
+    padding: 10px;
+    margin: 30px;
+    position: relative;
+    left: 50px;
 }
