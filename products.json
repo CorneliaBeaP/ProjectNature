@@ -1,0 +1,23 @@
+{
+  "products": [
+    {
+      "name": "Stor Sten från Himalaya",
+      "imageLink":"https://picsum.photos/110/110",
+      "description": "En sten med ursprung från Himalaya, helande egenskaper",
+      "price": 899
+    },
+    {
+      "name": "Mellan Sten från Himalaya",
+      "imageLink":"https://picsum.photos/110/110",
+      "description": "En sten med ursprung från Himalaya, helande egenskaper",
+      "price": 499
+    },
+    {
+      "name": "Liten Sten från Himalaya",
+      "imageLink":"https://picsum.photos/110/110",
+      "description": "En sten med ursprung från Himalaya, helande egenskaper",
+      "price": 299
+    }
+    
+  ]
+}

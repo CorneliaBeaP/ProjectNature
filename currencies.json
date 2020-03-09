@@ -1,0 +1,10 @@
+{
+    "currency":[
+    {
+        "SEK":"kr",
+        "Euro":"€",
+        "Pounds":"£",
+        "Dollars":"$"
+    }
+]
+}

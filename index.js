@@ -14,8 +14,28 @@
 
 
 $(document).ready(function(){
+  const productbox = document.getElementById("productbox");
     $("#cart").click(function(){
       $("#cartexpanded").toggle();
+    });
+    $.getJSON("products.json", function(response) {
+     console.log(response)
+     productArray = response.products;
+     console.log(productArray);
+       productArray.forEach(element => {
+        productbox.innerHTML += ` <div class="product">
+        <img src="${element.imageLink}" alt="">
+        <div class="productinfo">
+            <div class="productname">${element.name}</div>
+            <div class="description">${element.description}
+            </div>
+            <div class="price">Pris ${element.price} kr</div>
+            <div class="amount">Antal</div>
+            <button class="minusbtn">-</button>
+            <button class="plusbtn">+</button>
+        </div>`
+       });
+       $("#productbox").append = "shia"
     });
   });
 
