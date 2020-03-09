@@ -35,6 +35,26 @@ h1{
 
 }
 
+#confirmationcontainer{
+    box-sizing: border-box;
+    width: 1280px;
+    margin: auto;
+    font-family: 'Spartan', sans-serif;
+    background-color: #fff;
+    padding: 40px;
+
+}
+h2{
+    padding: 15px;
+    text-align: center;
+}
+
+h3{
+    padding: 40px;
+    text-align: center;
+    
+}
+
 #productbox {
     margin: auto;
     width: 600px;
@@ -198,4 +218,18 @@ margin-left: 10px;
     margin: 30px;
     position: relative;
     left: 50px;
+}
+
+#print{
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    border-color: darkgrey;
+    border-style: solid;
+    cursor: pointer;
+    font-family: 'Spartan', sans-serif;
+    padding: 10px;
+    margin-top: 30px;
 }
