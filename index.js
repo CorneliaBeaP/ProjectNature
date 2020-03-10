@@ -1,19 +1,15 @@
-// let cartbutton = document.getElementById('cart');
-// let cartexpanded = document.getElementById('cartexpanded');
-// cartbutton.addEventListener('click', opencart);
 
 
-// function opencart(){
-// if (cartexpanded.classList.contains('hidecart')){
-//     cartexpanded.classList.remove('hidecart');
-//     cartexpanded.classList.add('showcart');
-// }else{
-//     cartexpanded.classList.remove('showcart');
-//     cartexpanded.classList.add('hidecart');
-// }}
+
+
 
 
 $(document).ready(function(){
+
+
+
+
+
   const productbox = document.getElementById("productbox");
     $("#cart").click(function(){
       $("#cartexpanded").toggle();
@@ -35,9 +31,52 @@ $(document).ready(function(){
             <button class="plusbtn">+</button>
         </div>`
        });
-       $("#productbox").append = "shia"
+
+
+
+
+const cartexpanded = document.getElementById("cartexpanded");
+       $(".plusbtn").click(function() {
+       console.log(this.parentNode.innerHTML);
+       cartexpanded.innerHTML += this.parentNode.innerHTML;
+       console.log(cartexpanded);
+       
+       });
+
+
+       
+
+
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   });
+
+
+
 
 
 
