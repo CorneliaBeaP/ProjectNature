@@ -1,6 +1,7 @@
 {
   "products": [
     {
+      "id": 1,
       "name": "Stor Sten från Himalaya",
       "imageLink":"https://picsum.photos/110/110",
       "description": "En sten med ursprung från Himalaya, helande egenskaper",

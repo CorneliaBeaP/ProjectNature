@@ -4,53 +4,96 @@ $(document).ready(function () {
     $("#cartexpanded").toggle();
   });
   $.getJSON("products.json", function (response) {
-    console.log(response);
+
+    let cartArray = [];
     productArray = response.products;
-    console.log(productArray);
+
     productArray.forEach(element => {
       productbox.innerHTML += ` <div class="product">
-        <img src="${element.imageLink}" alt="">
-        <div id="productinfo">
-            <div class="productname">${element.name}</div>
-            <div class="description">${element.description}
-            </div>
-            <div class="price">Pris ${element.price} kr</div>
-            <button class="minusbtn">-</button>
-            <div class="amount">0</div>
-            <button class="plusbtn">+</button>
-        </div>`;
+      <img src="${element.imageLink}" alt="">
+      <div id="productinfo">
+      <div class="productname">${element.name}</div>
+      <div class="description">${element.description}
+      </div>
+      <div class="price">Pris ${element.price} kr</div>
+      <button class="minusbtn">-</button>
+      <div class="amount">0</div>
+      <button class="plusbtn">+</button>
+      </div>`;
 
     });
 
     const cartexpanded = document.getElementById("cartexpanded");
-    let cartArray = [];
-    $(".plusbtn").click(function() {
+    const cartproductbox = document.getElementById("cartproductbox");
+    let newArray = [];
+    $(".plusbtn").click(function () {
       let i = this.parentNode;
       let x = i.childNodes[9];
-      let v = cartexpanded.childNodes[15];
+
+      let x2 = parseInt(x.innerHTML);
+      x.innerHTML = x2 + 1;
+      let arrayitem;
+
 
       if (
-        cartexpanded.innerHTML.includes(this.parentNode.childNodes[1].innerHTML)
+        !cartproductbox.innerHTML.includes(this.parentNode.childNodes[1].innerHTML)
       ) {
+        arrayitem = this.parentNode;
+        console.log(arrayitem.childNodes);
+        let pname = arrayitem.childNodes[1].innerHTML;
+        let pdescription = arrayitem.childNodes[3].innerHTML;
+        let pprice = arrayitem.childNodes[5].innerHTML;
+        let pamount = arrayitem.childNodes[9].innerHTML;
+        newArray.push(pname, pdescription, pprice, pamount);
 
 
-        let v2 = parseInt(v.innerHTML);
-        v.innerHTML = v2 + 1;
-        let x2 = parseInt(x.innerHTML);
-        x.innerHTML = x2 + 1;
-      } else {
-        cartArray.push(this.parentNode);
-        console.log(cartArray);
+
+
+
+
+
+        // let item = JSON.stringify(cartArray);
+        // // console.log(arrayitem.parentNode);
+        // // console.log(cartArray);
+
         
-        cartexpanded.innerHTML += this.parentNode.innerHTML;
-        console.log(cartexpanded.innerHTML);
-        console.log(this.parentNode.childNodes[1]);
+        // let element = arrayitem;
+        
+        // let html = element.outerHTML;
+        
+        // let data = { html: html };
+        
+        // let json = JSON.stringify(data);
+        
+        // // console.log(json);
+        // localStorage.setItem("json", json);
+        
 
-        console.log(x.innerHTML);
-        let x2 = parseInt(x.innerHTML);
 
-        x.innerHTML = x2 + 1;
+
+
+        cartproductbox.innerHTML += this.parentNode.innerHTML;
+
+      } else {
+        // v1 = this.parentNode;
+        arrayitem = this.parentNode;
+      console.log(arrayitem);
+      pname = arrayitem.childNodes[1].innerHTML;
+      let pdescription = arrayitem.childNodes[3].innerHTML;
+      let pprice = arrayitem.childNodes[5].innerHTML;
+      let pamount = arrayitem.childNodes[9].innerHTML;
+      newArray.push(pname, pdescription, pprice, pamount);
+
+        let v2 = parseInt(cartproductbox.childNodes[9].innerHTML);
+console.log(cartproductbox.childNodes[9].innerHTML);
+
+
+        cartproductbox.childNodes[9].innerHTML = v2 + 1;
+
+
       }
+
+
     });
 
 
@@ -69,6 +112,13 @@ $(document).ready(function () {
     });
 
     $("#order").click(function () {
+      
+      
+      
+      cartArray.push(newArray);
+      localStorage.setItem('cartArray', JSON.stringify(cartArray));
+console.log(cartArray);
+
       window.location.href = "confirmation.html";
       // töm varukorgen 
     });
