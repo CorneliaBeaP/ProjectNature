@@ -26,6 +26,7 @@ $(document).ready(function () {
     const cartexpanded = document.getElementById("cartexpanded");
     const cartproductbox = document.getElementById("cartproductbox");
     let newArray = [];
+    let cartexpandedArray=[];
     $(".plusbtn").click(function () {
       let i = this.parentNode;
       let x = i.childNodes[9];
@@ -34,39 +35,17 @@ $(document).ready(function () {
       x.innerHTML = x2 + 1;
       let arrayitem;
 
+let pname;
+let pdescription;
+let pprice;
+let pamount;
+
+
+
 
       if (
         !cartproductbox.innerHTML.includes(this.parentNode.childNodes[1].innerHTML)
       ) {
-        arrayitem = this.parentNode;
-        console.log(arrayitem.childNodes);
-        let pname = arrayitem.childNodes[1].innerHTML;
-        let pdescription = arrayitem.childNodes[3].innerHTML;
-        let pprice = arrayitem.childNodes[5].innerHTML;
-        let pamount = arrayitem.childNodes[9].innerHTML;
-        newArray.push(pname, pdescription, pprice, pamount);
-
-
-
-
-
-
-
-        // let item = JSON.stringify(cartArray);
-        // // console.log(arrayitem.parentNode);
-        // // console.log(cartArray);
-
-        
-        // let element = arrayitem;
-        
-        // let html = element.outerHTML;
-        
-        // let data = { html: html };
-        
-        // let json = JSON.stringify(data);
-        
-        // // console.log(json);
-        // localStorage.setItem("json", json);
         
 
 
@@ -75,23 +54,55 @@ $(document).ready(function () {
         cartproductbox.innerHTML += this.parentNode.innerHTML;
 
       } else {
-        // v1 = this.parentNode;
-        arrayitem = this.parentNode;
-      console.log(arrayitem);
-      pname = arrayitem.childNodes[1].innerHTML;
-      let pdescription = arrayitem.childNodes[3].innerHTML;
-      let pprice = arrayitem.childNodes[5].innerHTML;
-      let pamount = arrayitem.childNodes[9].innerHTML;
-      newArray.push(pname, pdescription, pprice, pamount);
+
+
 
         let v2 = parseInt(cartproductbox.childNodes[9].innerHTML);
-console.log(cartproductbox.childNodes[9].innerHTML);
+
 
 
         cartproductbox.childNodes[9].innerHTML = v2 + 1;
 
 
       }
+
+
+
+
+
+      arrayitem = this.parentNode;
+      pname = arrayitem.childNodes[1].innerHTML;
+      pdescription = arrayitem.childNodes[3].innerHTML;
+      pprice = arrayitem.childNodes[5].innerHTML;
+      pamount = arrayitem.childNodes[9].innerHTML;
+
+if(newArray.includes(arrayitem.childNodes[1].innerHTML)){
+
+
+  let amountforproduct = parseInt(newArray[3]);
+
+  newArray[3] = amountforproduct + 1;
+
+
+
+}else{
+ newArray=[];
+  newArray.push(pname, pdescription, pprice, pamount);
+cartexpandedArray.push(newArray);
+
+localStorage.setItem('cartexpandedArray', JSON.stringify(cartexpandedArray));
+
+console.log(cartexpandedArray);
+
+  cartArray.push(newArray);
+
+
+
+}
+
+
+
+
 
 
     });
@@ -115,9 +126,9 @@ console.log(cartproductbox.childNodes[9].innerHTML);
       
       
       
-      cartArray.push(newArray);
+
       localStorage.setItem('cartArray', JSON.stringify(cartArray));
-console.log(cartArray);
+
 
       window.location.href = "confirmation.html";
       // töm varukorgen 
