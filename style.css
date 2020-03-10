@@ -189,13 +189,16 @@ margin-left: 10px;
 
 
 #cartexpanded{
+    box-sizing: border-box;
     transition: 0.2s ease-out;
     background-color: aquamarine;
     position: fixed;
     bottom: 60px;
     width: 450px;
     overflow: scroll;
+    overflow-wrap: break-word;
     max-height: 800px;
+  padding: 15px;
 }
 
 
@@ -232,4 +235,10 @@ margin-left: 10px;
     font-family: 'Spartan', sans-serif;
     padding: 10px;
     margin-top: 30px;
+}
+
+#cartexpanded .amount{
+color: blue;
+font-family: 'Courier New', Courier, monospace;
+
 }
