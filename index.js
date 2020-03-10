@@ -21,13 +21,13 @@ $(document).ready(function(){
        productArray.forEach(element => {
         productbox.innerHTML += ` <div class="product">
         <img src="${element.imageLink}" alt="">
-        <div class="productinfo">
+        <div id="productinfo">
             <div class="productname">${element.name}</div>
             <div class="description">${element.description}
             </div>
             <div class="price">Pris ${element.price} kr</div>
             <button class="minusbtn">-</button>
-            <div class="amount">Antal</div>
+            <div class="amount">0</div>
             <button class="plusbtn">+</button>
         </div>`
        });
@@ -37,14 +37,24 @@ $(document).ready(function(){
 
 const cartexpanded = document.getElementById("cartexpanded");
        $(".plusbtn").click(function() {
-       console.log(this.parentNode.innerHTML);
+let x = document.getElementById("productinfo").childNodes[9];
+console.log(x.innerHTML);
+let x2 = parseInt(x.innerHTML);
+
+x.innerHTML = x2 + 1;
+
+
+
+
+
+
        cartexpanded.innerHTML += this.parentNode.innerHTML;
-       console.log(cartexpanded);
+
        
        });
 
 
-       
+
 
 
     });
