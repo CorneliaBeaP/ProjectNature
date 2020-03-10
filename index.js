@@ -19,11 +19,30 @@ $(document).ready(function() {
             <div class="amount">0</div>
             <button class="plusbtn">+</button>
         </div>`;
+       });
+
+
+
+
+const cartexpanded = document.getElementById("cartexpanded");
+       $(".plusbtn").click(function() {
+       console.log(this.parentNode.innerHTML);
+       if (cartexpanded.innerHTML == this.parentNode.innerHTML) {
+       console.log("plus amount");
+       } else {
+       cartexpanded.innerHTML += this.parentNode.innerHTML;
+       console.log(cartexpanded);
+       }
+       
+       });
+
+
+      
     });
 
     const cartexpanded = document.getElementById("cartexpanded");
     $(".plusbtn").click(function() {
-      let x = document.getElementById("productinfo").childNodes[9];
+     let x = document.getElementById("productinfo").childNodes[9];
       console.log(x.innerHTML);
       let x2 = parseInt(x.innerHTML);
 
@@ -40,7 +59,6 @@ $(document).ready(function() {
       }
     });
   });
-});
 
 // var i;
 
