@@ -27,7 +27,7 @@ $(document).ready(function () {
     $(".plusbtn").click(function() {
       let i = this.parentNode;
       let x = i.childNodes[9];
-      let v = cartexpanded.childNodes[13];
+      let v = cartexpanded.childNodes[15];
 
       if (
         cartexpanded.innerHTML.includes(this.parentNode.childNodes[1].innerHTML)
