@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
   const productbox = document.getElementById("productbox");
-  $("#cart").click(function() {
+  $("#cart").click(function () {
     $("#cartexpanded").toggle();
   });
-  $.getJSON("products.json", function(response) {
+  $.getJSON("products.json", function (response) {
     console.log(response);
     productArray = response.products;
     console.log(productArray);
@@ -19,6 +19,7 @@ $(document).ready(function() {
             <div class="amount">0</div>
             <button class="plusbtn">+</button>
         </div>`;
+
     });
 
     const cartexpanded = document.getElementById("cartexpanded");
@@ -51,5 +52,29 @@ $(document).ready(function() {
         x.innerHTML = x2 + 1;
       }
     });
+
+
+    $(".minusbtn").click(function () {
+      let i = this.parentNode;
+      let x = i.childNodes[9];
+
+      let x2 = parseInt(x.innerHTML);
+      if (x2 > 0)
+        x.innerHTML = x2 - 1;
+    });
+
+    $("#clearcart").click(function () {
+      // töm varukorgen
+
+    });
+
+    $("#order").click(function () {
+      window.location.href = "confirmation.html";
+      // töm varukorgen 
+    });
+
+
+
   });
+
 });

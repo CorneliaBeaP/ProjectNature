@@ -17,7 +17,48 @@
       "imageLink":"https://picsum.photos/110/110",
       "description": "En sten med ursprung från Himalaya, helande egenskaper",
       "price": 299
+    },
+    {
+      "name": "Vatten från hälsokällan i Bergslagen",
+      "imageLink":"https://picsum.photos/110/110",
+      "description": "Porlande vatten från hälsokällan i Bergslagen, föryngrande",
+      "price": 399
+    },
+    {
+      "name": "Vatten från Västkusten",
+      "imageLink":"https://picsum.photos/110/110",
+      "description": "Saltvatten från glädjens kust, energigivande",
+      "price": 399
+    },
+    {
+      "name": "Regn",
+      "imageLink":"https://picsum.photos/110/110",
+      "description": "Uppsamlat regn från skog, berg och kuster. ",
+      "price": 799
+    },
+    {
+      "name": "Tårar från Quizkampen",
+      "imageLink":"https://picsum.photos/110/110",
+      "description": "",
+      "price": 799
+    },
+    {
+      "name": "Luft från Norrland",
+      "imageLink":"https://picsum.photos/110/110",
+      "description": "",
+      "price": 299
+    },
+    {
+      "name": "Luft från Klassrummet",
+      "imageLink":"https://picsum.photos/110/110",
+      "description": "",
+      "price": 299
+    },
+    {
+      "name": "Luft från Stockholm",
+      "imageLink":"https://picsum.photos/110/110",
+      "description": "",
+      "price": 299
     }
-    
   ]
 }
