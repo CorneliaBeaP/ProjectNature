@@ -29,7 +29,8 @@ h1 {
   width: 1280px;
   margin: auto;
   font-family: "Spartan", sans-serif;
-  display: flex;
+
+  
   background-color: #fff;
 }
 
@@ -243,3 +244,15 @@ h3 {
 #cartexpanded .productname {
     top: 0px;
 }
+
+.priceinfo{
+display: inline;
+
+}
+
+.price{
+display: inline;
+top: 0em;
+
+}
+
