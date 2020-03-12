@@ -13,7 +13,7 @@ $(document).ready(function() {
       <div id="productinfo">
       <div class="productname">${element.name}</div>
       <div class="description">${element.description}</div>
-      <div class="priceinfo">Pris <div class="price">${element.price}</div> kr</div>
+      <div class="priceinfo">Pris <div class="price">${element.price}</div> kr/st</div>
       <button class="minusbtn">-</button>
       <div class="amount">0</div>
       <button class="plusbtn">+</button>
@@ -58,8 +58,8 @@ $(document).ready(function() {
         )
       ) {
         let clone = $(this.parentNode).clone();
-        clone[0].innerHTML += `<button class="deletebtn">delete</button>`;
-
+        clone[0].innerHTML += `<button class="deletebtn">X</button>`;
+     
         clone.appendTo("#cartproductbox");
         clonearray.push(clone);
 
