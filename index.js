@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
   const productbox = document.getElementById("productbox");
-  $("#cart").click(function() {
+  $("#cart").click(function () {
     $("#cartexpanded").toggle();
   });
-  $.getJSON("products.json", function(response) {
+  $.getJSON("products.json", function (response) {
     let cartArray = [];
     productArray = response.products;
 
@@ -27,12 +27,13 @@ $(document).ready(function() {
     tempArray = [];
     let plusbtnfromclone;
     let minusbtnfromclone;
+    let deletebtnfromclone;
     let amountfromchildnodes;
     let sum = document.getElementById("sum");
     let productBoxArray = document.getElementById("productbox").childNodes;
     let amountarray = [];
 
-    $(".plusbtn").click(function() {
+    $(".plusbtn").click(function () {
       let i = this.parentNode;
       let amountfromchildnodes = i.childNodes[9];
       //       let minusbtnfromchildnodes = i.childNodes[7];
@@ -58,7 +59,7 @@ $(document).ready(function() {
       ) {
         let clone = $(this.parentNode).clone();
         clone[0].innerHTML += `<button class="deletebtn">X</button>`;
-     
+
         clone.appendTo("#cartproductbox");
         clonearray.push(clone);
 
@@ -68,32 +69,11 @@ $(document).ready(function() {
 
         minusbtnfromclone = clone[0].childNodes[7];
 
-        $(".deletebtn").click(function() {
-          productBoxArray.forEach(element => {
-            if (
-              element.childNodes[3].childNodes[1].innerHTML.includes(
-                this.parentNode.childNodes[1].innerHTML
-              )
-            ) {
-              let quantity = parseInt(
-                element.childNodes[3].childNodes[9].innerHTML
-              );
+        deletebtnfromclone = clone[0].childNodes[12];
 
-              let price = parseInt(
-                element.childNodes[3].childNodes[5].childNodes[1].innerHTML
-              );
 
-              let totalAmount = quantity * price;
-              element.childNodes[3].childNodes[9].innerHTML = 0;
-              console.log(totalAmount);
-              let deletesum = parseInt(sum.innerHTML);
-              sum.innerHTML = deletesum - totalAmount;
-            }
-          });
 
-          this.parentNode.remove();
-          clonearray.splice(clonearray.indexOf(this.parentNode), 1);
-        });
+
 
         // AVSLUTAS HÄR
       } else {
@@ -114,7 +94,7 @@ $(document).ready(function() {
       // AVSLUTAS HÄR
     });
 
-    $(".minusbtn").click(function() {
+    $(".minusbtn").click(function () {
       // uppdaterar sidan
       let i = this.parentNode;
       amountfromchildnodes = i.childNodes[9];
@@ -162,7 +142,7 @@ $(document).ready(function() {
       });
     });
 
-    $("#cartproductbox").on("click", ".plusbtn", plusbtnfromclone, function() {
+    $("#cartproductbox").on("click", ".plusbtn", plusbtnfromclone, function () {
       let sumdiv = this.parentNode.childNodes[9];
       let sumHTML = sumdiv.innerHTML;
       let sumparsed = parseInt(sumHTML);
@@ -185,6 +165,10 @@ $(document).ready(function() {
           );
           amountParsed += 1;
           element.childNodes[3].childNodes[9].innerHTML = amountParsed;
+          console.log("från plus");
+
+          console.log(clonearray);
+
         }
       });
     });
@@ -193,7 +177,7 @@ $(document).ready(function() {
       "click",
       ".minusbtn",
       minusbtnfromclone,
-      function() {
+      function () {
         let sumdiv = this.parentNode.childNodes[9];
         let sumHTML = sumdiv.innerHTML;
         let sumparsed = parseInt(sumHTML);
@@ -209,8 +193,15 @@ $(document).ready(function() {
         if (sumparsed > 1) {
           sumdiv.innerHTML = sumparsed - 1;
         } else {
-          this.parentNode.remove();
-          clonearray.splice(clonearray.indexOf(this.parentNode), 1);
+          clonearray.forEach(element => {
+            if (element[0].childNodes[1].innerHTML.includes(this.parentNode.childNodes[1].innerHTML)) {
+
+              clonearray.splice(clonearray.indexOf(element), 1);
+              this.parentNode.remove();
+            }
+          });
+
+
         }
 
         productBoxArray.forEach(element => {
@@ -226,10 +217,46 @@ $(document).ready(function() {
             element.childNodes[3].childNodes[9].innerHTML = amountParsed;
           }
         });
-      }
-    );
+        console.log("från minus");
+        console.log(clonearray);
 
-    $("#clearcart").click(function() {
+
+      });
+
+    $("#cartproductbox").on("click", ".deletebtn", deletebtnfromclone, function () {
+      productBoxArray.forEach(element => {
+        if (
+          element.childNodes[3].childNodes[1].innerHTML.includes(
+            this.parentNode.childNodes[1].innerHTML
+          )
+        ) {
+          let quantity = parseInt(
+            element.childNodes[3].childNodes[9].innerHTML
+          );
+
+          let price = parseInt(
+            element.childNodes[3].childNodes[5].childNodes[1].innerHTML
+          );
+
+          let totalAmount = quantity * price;
+          element.childNodes[3].childNodes[9].innerHTML = 0;
+          console.log(totalAmount);
+          let deletesum = parseInt(sum.innerHTML);
+          sum.innerHTML = deletesum - totalAmount;
+        }
+      });
+
+      clonearray.forEach(element => {
+        if (element[0].childNodes[1].innerHTML.includes(this.parentNode.childNodes[1].innerHTML)) {
+
+          clonearray.splice(clonearray.indexOf(element), 1);
+          this.parentNode.remove();
+        }});
+
+
+    });
+
+    $("#clearcart").click(function () {
       cartproductbox.innerHTML = "";
       clonearray = [];
       cartArray = [];
@@ -244,7 +271,7 @@ $(document).ready(function() {
       sum.innerHTML = 0;
     });
 
-    $("#order").click(function() {
+    $("#order").click(function () {
       if (sum.innerHTML.length > 1) {
         clonearray.forEach(element => {
           tempArray = [];
@@ -254,8 +281,13 @@ $(document).ready(function() {
           let pamount2 = element[0].childNodes[9].innerHTML;
 
           tempArray.push(pname2, pdescription2, pprice2, pamount2);
+          console.log(tempArray);
+
           cartArray.push(tempArray);
         });
+
+        console.log(cartArray);
+
 
         localStorage.setItem("totsum", JSON.stringify(sum.innerHTML));
 
