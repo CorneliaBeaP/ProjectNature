@@ -13,11 +13,10 @@ $(document).ready(function() {
       <div id="productinfo">
       <div class="productname">${element.name}</div>
       <div class="description">${element.description}</div>
-      <div class="priceinfo">Pris <div class="price">${element.price}</div> kr/st</div>
+      <div class="priceinfo">Pris <div class="price">${element.price}</div> kr</div>
       <button class="minusbtn">-</button>
       <div class="amount">0</div>
-      <button class="plusbtn">+</button>
-      </div>`;
+      <button class="plusbtn">+</button></div>`;
     });
     let cloneamount;
     const cartexpanded = document.getElementById("cartexpanded");
