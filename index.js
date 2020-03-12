@@ -70,12 +70,7 @@ $(document).ready(function() {
         plusbtnfromclone = clone[0].childNodes[11];
       
         minusbtnfromclone = clone[0].childNodes[7];
-    
-
-        plusbtnfromclone = clone[0].childNodes[11];
-        console.log(plusbtnfromclone);
-
-        minusbtnfromclone = clone[0].childNodes[7];
+  
   
 
         $(".deletebtn").click(function() {
@@ -103,9 +98,12 @@ $(document).ready(function() {
 
         });
 
-        // AVSLUTAS HÄR
 
         // AVSLUTAS HÄR
+
+
+
+
       } else {
         clonearray.forEach(element => {
           if (
@@ -130,7 +128,9 @@ $(document).ready(function() {
       amountfromchildnodes = i.childNodes[9];
 
       let x2 = parseInt(amountfromchildnodes.innerHTML);
-      if (x2 > 0) amountfromchildnodes.innerHTML = x2 - 1;
+      if (x2 > 0){
+        amountfromchildnodes.innerHTML = x2 - 1;
+      }
 
       let sum = document.getElementById("sum");
       let sumprice = i.childNodes[5].childNodes[1].innerHTML;
@@ -158,10 +158,7 @@ $(document).ready(function() {
             element[0].remove();
           } else {
             if (
-              element[0].childNodes[1].innerHTML.includes(
-                this.parentNode.childNodes[1].innerHTML
-              )
-            ) {
+              element[0].childNodes[1].innerHTML.includes(this.parentNode.childNodes[1].innerHTML)) {
               element[0].childNodes[9].innerHTML = cloneamount - 1;
               sum.innerHTML = sum2 - sumprice2;
             }

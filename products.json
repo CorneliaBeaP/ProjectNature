@@ -3,62 +3,62 @@
     {
       "id": 1,
       "name": "Stor Sten från Himalaya",
-      "imageLink":"https://picsum.photos/110/110",
+      "imageLink":"images/storsten.jpg",
       "description": "En sten med ursprung från Himalaya, helande egenskaper",
       "price": 899
     },
     {
       "name": "Mellan Sten från Himalaya",
-      "imageLink":"https://picsum.photos/110/110",
+      "imageLink":"images/mellansten.jpg",
       "description": "En sten med ursprung från Himalaya, helande egenskaper",
       "price": 499
     },
     {
       "name": "Liten Sten från Himalaya",
-      "imageLink":"https://picsum.photos/110/110",
+      "imageLink":"images/litensten.jpg",
       "description": "En sten med ursprung från Himalaya, helande egenskaper",
       "price": 299
     },
     {
       "name": "Vatten från hälsokällan i Bergslagen",
-      "imageLink":"https://picsum.photos/110/110",
+      "imageLink":"images/halso.jpg",
       "description": "Porlande vatten från hälsokällan i Bergslagen, föryngrande",
       "price": 399
     },
     {
       "name": "Vatten från Västkusten",
-      "imageLink":"https://picsum.photos/110/110",
+      "imageLink":"images/vastkusten.jpg",
       "description": "Saltvatten från glädjens kust, energigivande",
       "price": 399
     },
     {
       "name": "Regn",
-      "imageLink":"https://picsum.photos/110/110",
-      "description": "Uppsamlat regn från skog, berg och kuster. ",
+      "imageLink":"images/regn.jpg",
+      "description": "Uppsamlat regn från skog, berg och kuster. Rogivande",
       "price": 799
     },
     {
       "name": "Tårar från Quizkampen",
-      "imageLink":"https://picsum.photos/110/110",
-      "description": "",
+      "imageLink":"images/quiz.jpg",
+      "description": "Insamlade tårar från Quizkampen.",
       "price": 799
     },
     {
       "name": "Luft från Norrland",
-      "imageLink":"https://picsum.photos/110/110",
-      "description": "",
+      "imageLink":"images/norrland.jpg",
+      "description": "Glasburk fylld av luft från Norrlands skogar. Gör dig rofylld vid inandning",
       "price": 299
     },
     {
       "name": "Luft från Klassrummet",
-      "imageLink":"https://picsum.photos/110/110",
-      "description": "",
+      "imageLink":"images/klassrummet.jpg",
+      "description": "Glasburk fylld av luft från klassrum C404. Gör dig trött vid inandning",
       "price": 299
     },
     {
       "name": "Luft från Stockholm",
-      "imageLink":"https://picsum.photos/110/110",
-      "description": "",
+      "imageLink":"images/stockholm.jpg",
+      "description": "Glasburk fylld av luft från söder. Gör dig pigg vid inandning",
       "price": 299
     }
   ]

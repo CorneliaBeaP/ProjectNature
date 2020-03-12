@@ -4,18 +4,16 @@ $(document).ready(function () {
 let cartArray = JSON.parse(localStorage.getItem('cartArray'));
 let totsum = JSON.parse(localStorage.getItem('totsum'));
 
-// document.getElementById("confirmationproducts").innerHTML = (cartArray);
 let list = document.getElementById("list");
 
 
 cartArray.forEach(element => {
-    // document.getElementById("confirmationproducts").append = element + "hejhej";
-    $('#list').append("<li>" + element + "</li>");
+    $('#list').append("<li>" + element[0] + "<br>" + element[1] + "<br>" + element[2] + "<br> Antal: " + element[3] + "</li>");
+    
 });
 
 
 
-    //    $('#list').append(cartArray[0]);
 
 console.log(cartArray);
 console.log(totsum);
