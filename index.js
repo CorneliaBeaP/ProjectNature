@@ -16,7 +16,7 @@ $(document).ready(function() {
       <div class="priceinfo">Pris <div class="price">${element.price}</div> kr</div>
       <button class="minusbtn">-</button>
       <div class="amount">0</div>
-      <button class="plusbtn" onClick=>+</button>
+      <button class="plusbtn">+</button>
       </div>`;
     });
     let cloneamount;
@@ -49,8 +49,6 @@ $(document).ready(function() {
       let sumprice = i.childNodes[5].childNodes[1].innerHTML;
       let sumprice2 = parseInt(sumprice);
 
-
-
       let sum2 = parseInt(sum.innerHTML);
       sum.innerHTML = sum2 + sumprice2;
 
@@ -61,17 +59,15 @@ $(document).ready(function() {
       ) {
         let clone = $(this.parentNode).clone();
         clone[0].innerHTML += `<button class="deletebtn">delete</button>`;
-     
+
         clone.appendTo("#cartproductbox");
         clonearray.push(clone);
 
         // LAGT TILL FÖR ATT LÖSA PLUS I CART
 
         plusbtnfromclone = clone[0].childNodes[11];
-      
+
         minusbtnfromclone = clone[0].childNodes[7];
-  
-  
 
         $(".deletebtn").click(function() {
           productBoxArray.forEach(element => {
@@ -80,10 +76,14 @@ $(document).ready(function() {
                 this.parentNode.childNodes[1].innerHTML
               )
             ) {
-              let quantity = parseInt(element.childNodes[3].childNodes[9].innerHTML);
-    
-              let price = parseInt(element.childNodes[3].childNodes[5].childNodes[1].innerHTML);
-    
+              let quantity = parseInt(
+                element.childNodes[3].childNodes[9].innerHTML
+              );
+
+              let price = parseInt(
+                element.childNodes[3].childNodes[5].childNodes[1].innerHTML
+              );
+
               let totalAmount = quantity * price;
               element.childNodes[3].childNodes[9].innerHTML = 0;
               console.log(totalAmount);
@@ -94,16 +94,9 @@ $(document).ready(function() {
 
           this.parentNode.remove();
           clonearray.splice(clonearray.indexOf(this.parentNode), 1);
-
-
         });
 
-
         // AVSLUTAS HÄR
-
-
-
-
       } else {
         clonearray.forEach(element => {
           if (
@@ -128,7 +121,7 @@ $(document).ready(function() {
       amountfromchildnodes = i.childNodes[9];
 
       let x2 = parseInt(amountfromchildnodes.innerHTML);
-      if (x2 > 0){
+      if (x2 > 0) {
         amountfromchildnodes.innerHTML = x2 - 1;
       }
 
@@ -158,7 +151,10 @@ $(document).ready(function() {
             element[0].remove();
           } else {
             if (
-              element[0].childNodes[1].innerHTML.includes(this.parentNode.childNodes[1].innerHTML)) {
+              element[0].childNodes[1].innerHTML.includes(
+                this.parentNode.childNodes[1].innerHTML
+              )
+            ) {
               element[0].childNodes[9].innerHTML = cloneamount - 1;
               sum.innerHTML = sum2 - sumprice2;
             }
@@ -180,17 +176,25 @@ $(document).ready(function() {
       sum.innerHTML = sumparsed2 + plusbtnpriceparsed;
 
       productBoxArray.forEach(element => {
-        if (element.childNodes[3].childNodes[1].innerHTML.includes(this.parentNode.childNodes[1].innerHTML)){
-           let amountParsed = parseInt(element.childNodes[3].childNodes[9].innerHTML);
-           amountParsed += 1;
-           element.childNodes[3].childNodes[9].innerHTML = amountParsed;
+        if (
+          element.childNodes[3].childNodes[1].innerHTML.includes(
+            this.parentNode.childNodes[1].innerHTML
+          )
+        ) {
+          let amountParsed = parseInt(
+            element.childNodes[3].childNodes[9].innerHTML
+          );
+          amountParsed += 1;
+          element.childNodes[3].childNodes[9].innerHTML = amountParsed;
         }
       });
-
-
     });
 
-    $("#cartproductbox").on("click",".minusbtn", minusbtnfromclone, function() {
+    $("#cartproductbox").on(
+      "click",
+      ".minusbtn",
+      minusbtnfromclone,
+      function() {
         let sumdiv = this.parentNode.childNodes[9];
         let sumHTML = sumdiv.innerHTML;
         let sumparsed = parseInt(sumHTML);
@@ -211,10 +215,16 @@ $(document).ready(function() {
         }
 
         productBoxArray.forEach(element => {
-          if (element.childNodes[3].childNodes[1].innerHTML.includes(this.parentNode.childNodes[1].innerHTML)){
-             let amountParsed = parseInt(element.childNodes[3].childNodes[9].innerHTML);
-             amountParsed += -1;
-             element.childNodes[3].childNodes[9].innerHTML = amountParsed;
+          if (
+            element.childNodes[3].childNodes[1].innerHTML.includes(
+              this.parentNode.childNodes[1].innerHTML
+            )
+          ) {
+            let amountParsed = parseInt(
+              element.childNodes[3].childNodes[9].innerHTML
+            );
+            amountParsed += -1;
+            element.childNodes[3].childNodes[9].innerHTML = amountParsed;
           }
         });
       }
