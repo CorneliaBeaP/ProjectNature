@@ -18,7 +18,7 @@ $(document).ready(function () {
       <div class="priceinfo">Pris <div class="price">${element.price}</div> kr</div>
       <button class="minusbtn">-</button>
       <div class="amount">0</div>
-      <button class="plusbtn">+</button>
+      <button class="plusbtn" onClick=>+</button>
       </div>`;
 
     });
@@ -29,16 +29,28 @@ $(document).ready(function () {
     let cartexpandedArray = [];
     let clonearray = [];
     tempArray = [];
+    let plusbtnfromclone;
+
+
+
 
 
 
 
     $(".plusbtn").click(function () {
       let i = this.parentNode;
-      let x = i.childNodes[9];
+      let amountfromchildnodes = i.childNodes[9];
+//       let minusbtnfromchildnodes = i.childNodes[7];
+//       let plusbtnfromchildnodes = i.childNodes[11];
 
-      let x2 = parseInt(x.innerHTML);
-      x.innerHTML = x2 + 1;
+// plusbtnfromchildnodes.click(function(){
+
+// })
+      
+
+
+      let x2 = parseInt(amountfromchildnodes.innerHTML);
+      amountfromchildnodes.innerHTML = x2 + 1;
       let arrayitem;
 
       let pname;
@@ -53,7 +65,7 @@ $(document).ready(function () {
       console.log(sumprice2);
 
       let sum2 = parseInt(sum.innerHTML);
-      sum.innerHTML = sum2 + sumprice2 + "kr";
+      sum.innerHTML = sum2 + sumprice2;
 
 
       if (
@@ -63,13 +75,21 @@ $(document).ready(function () {
         clone.appendTo("#cartproductbox");
         clonearray.push(clone);
 
+        // LAGT TILL FÖR ATT LÖSA PLUS I CART
+
+        plusbtnfromclone = clone[0].childNodes[11];
+        console.log(plusbtnfromclone);
+        plusbtnfromclone.click(console.log("sag"));
+        
+    
+
+
+// AVSLUTAS HÄR
+
 
 
 
       } else {
-
-
-
         clonearray.forEach(element => {
 
           if (element[0].childNodes[1].innerHTML.includes(this.parentNode.childNodes[1].innerHTML)) {
@@ -82,6 +102,17 @@ $(document).ready(function () {
 
       }
 
+
+      // FORTSÄTT HÄR FÖR ATT LÖSA PLUS I CARTEN
+
+
+      
+
+
+// AVSLUTAS HÄR
+
+
+
       arrayitem = this.parentNode;
       pname = arrayitem.childNodes[1].innerHTML;
       pdescription = arrayitem.childNodes[3].innerHTML;
@@ -90,23 +121,21 @@ $(document).ready(function () {
 
     });
 
-
     $(".minusbtn").click(function () {
       // uppdaterar sidan
       let i = this.parentNode;
-      let x = i.childNodes[9];
+      let amountfromchildnodes = i.childNodes[9];
 
-      let x2 = parseInt(x.innerHTML);
+      let x2 = parseInt(amountfromchildnodes.innerHTML);
       if (x2 > 0)
-        x.innerHTML = x2 - 1;
+        amountfromchildnodes.innerHTML = x2 - 1;
 
       let sum = document.getElementById("sum");
       let sumprice = i.childNodes[5].childNodes[1].innerHTML;
       let sumprice2 = parseInt(sumprice);
 
-      console.log(sumprice2);
-
       let sum2 = parseInt(sum.innerHTML);
+
 
 
 
@@ -114,19 +143,20 @@ $(document).ready(function () {
       // uppdaterar kundvagn
       clonearray.forEach(element => {
         cloneamount = parseInt(element[0].childNodes[9].innerHTML);
+        if(element[0].childNodes[9].innerHTML > 0 && element[0].childNodes[1].innerHTML.includes(this.parentNode.childNodes[1].innerHTML)){
         if (element[0].childNodes[9].innerHTML == 1 && element[0].childNodes[1].innerHTML.includes(this.parentNode.childNodes[1].innerHTML)) {
-          sum.innerHTML= 0 + "kr";
+          sum.innerHTML = sum2 - sumprice2;
           clonearray.splice(clonearray.indexOf(element), 1);
           element[0].remove();
 
         } else {
           if (element[0].childNodes[1].innerHTML.includes(this.parentNode.childNodes[1].innerHTML)) {
             element[0].childNodes[9].innerHTML = cloneamount - 1;
-            sum.innerHTML = sum2 - sumprice2 + "kr";
+            sum.innerHTML = sum2 - sumprice2;
           }
 
 
-        }
+        }}
       });
 
 
@@ -150,6 +180,10 @@ $(document).ready(function () {
 
 
     $("#order").click(function () {
+
+
+
+      if (sum.innerHTML.length>1){
       clonearray.forEach(element => {
         tempArray = [];
         let pname2 = element[0].childNodes[1].innerHTML;
@@ -162,16 +196,14 @@ $(document).ready(function () {
       });
 
 
-
-
+      localStorage.setItem('totsum', JSON.stringify(sum.innerHTML));
 
       localStorage.setItem('cartArray', JSON.stringify(cartArray));
-
-      console.log(clonearray);
       window.location.href = "confirmation.html";
 
+      }
 
-      // töm varukorgen 
+
     });
 
 
