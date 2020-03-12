@@ -29,7 +29,6 @@ $(document).ready(function () {
     let clonearray = [];
     tempArray = [];
     let plusbtnfromclone;
-
     let minusbtnfromclone;
     let amountfromchildnodes;
     let sum = document.getElementById("sum");
@@ -83,6 +82,11 @@ $(document).ready(function () {
 
         plusbtnfromclone = clone[0].childNodes[11];
         console.log(plusbtnfromclone);
+        minusbtnfromclone = clone[0].childNodes[7];
+        console.log(minusbtnfromclone);
+
+        plusbtnfromclone = clone[0].childNodes[11];
+        console.log(plusbtnfromclone);
 
         minusbtnfromclone = clone[0].childNodes[7];
         console.log(minusbtnfromclone);
@@ -106,9 +110,9 @@ $(document).ready(function () {
         
 
 
-
         // AVSLUTAS HÄR
 
+        // AVSLUTAS HÄR
 
 
 
