@@ -207,6 +207,7 @@ $(document).ready(function() {
           sumdiv.innerHTML = sumparsed - 1;
         } else {
           this.parentNode.remove();
+          clonearray.splice(clonearray.indexOf(this.parentNode), 1);
         }
 
         productBoxArray.forEach(element => {
