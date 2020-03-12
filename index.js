@@ -227,6 +227,8 @@ $(document).ready(function () {
           let pprice2 = element[0].childNodes[5].innerHTML;
           let pamount2 = element[0].childNodes[9].innerHTML;
 
+          
+
           tempArray.push(pname2, pdescription2, pprice2, pamount2);
           cartArray.push(tempArray);
         });
@@ -235,8 +237,8 @@ $(document).ready(function () {
         localStorage.setItem('totsum', JSON.stringify(sum.innerHTML));
 
         localStorage.setItem('cartArray', JSON.stringify(cartArray));
-        window.location.href = "confirmation.html";
 
+        window.location.href = "confirmation.html";
       }
 
 
