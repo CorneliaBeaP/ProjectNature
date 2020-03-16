@@ -19,10 +19,9 @@ $(document).ready(function () {
       <button class="plusbtn">+</button></div>`;
     });
     let cloneamount;
-    const cartexpanded = document.getElementById("cartexpanded");
     const cartproductbox = document.getElementById("cartproductbox");
 
-    let cartexpandedArray = [];
+
     let clonearray = [];
     tempArray = [];
     let plusbtnfromclone;
@@ -36,12 +35,7 @@ $(document).ready(function () {
     $(".plusbtn").click(function () {
       let i = this.parentNode;
       let amountfromchildnodes = i.childNodes[9];
-      //       let minusbtnfromchildnodes = i.childNodes[7];
-      //       let plusbtnfromchildnodes = i.childNodes[11];
 
-      // plusbtnfromchildnodes.click(function(){
-
-      // })
 
       let x2 = parseInt(amountfromchildnodes.innerHTML);
       amountfromchildnodes.innerHTML = x2 + 1;
@@ -63,7 +57,7 @@ $(document).ready(function () {
         clone.appendTo("#cartproductbox");
         clonearray.push(clone);
 
-        // LAGT TILL FÖR ATT LÖSA PLUS I CART
+
 
         plusbtnfromclone = clone[0].childNodes[11];
 
@@ -72,10 +66,6 @@ $(document).ready(function () {
         deletebtnfromclone = clone[0].childNodes[12];
 
 
-
-
-
-        // AVSLUTAS HÄR
       } else {
         clonearray.forEach(element => {
           if (
@@ -89,9 +79,6 @@ $(document).ready(function () {
         });
       }
 
-      // FORTSÄTT HÄR FÖR ATT LÖSA PLUS I CARTEN
-
-      // AVSLUTAS HÄR
     });
 
     $(".minusbtn").click(function () {
